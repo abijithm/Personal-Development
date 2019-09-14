@@ -1,0 +1,35 @@
+//International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, 
+//as follows: "a" maps to ".-", "b" maps to "-...", "c" maps to "-.-.", and so on.
+//For convenience, the full table for the 26 letters of the English alphabet is given below:
+//[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..",
+//"--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+//Now, given a list of words, each word can be written as a concatenation of the Morse code of each letter. 
+//For example, "cba" can be written as "-.-..--...", (which is the concatenation "-.-." + "-..." + ".-"). 
+//We'll call such a concatenation, the transformation of a word.
+//Return the number of different transformations among all words we have.
+
+public class Solution 
+{
+    public int UniqueMorseRepresentations(string[] words) 
+    {
+        String[] morseAlphabet = new String[]{".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+        
+        string[] wordCode = new string[words.Length];
+        int i = 0;
+        foreach(string word in words)
+        {
+            string letterCode = "";
+            foreach(char letter in word)
+            {
+                letterCode += (morseAlphabet[letter-'a']);
+            }
+            foreach(var wordcode in wordCode)
+            {
+                    break;
+                    wordCode[i] = letterCode;
+                    i++;
+            }
+        }
+        return wordCode.Length;
+    }
+}
